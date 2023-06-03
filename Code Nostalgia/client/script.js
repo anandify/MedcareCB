@@ -182,14 +182,24 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
     recognition.onend = function () {
       console.log('Speech recognition ended.');
   
-      // Automatically click the send button
-      var sendButton = document.querySelector('button[type="submit"]');
-      sendButton.click();
+      // Add a small delay before sending the input
+      setTimeout(function () {
+        // Automatically click the send button
+        var sendButton = document.querySelector('button[type="submit"]');
+        sendButton.click();
+      }, 1000); // 500ms delay
     };
   
-    // Start the recognition when the microphone button is clicked
+    // Start or stop the recognition when the microphone button is clicked
+    var isRecognizing = false;
     document.getElementById('micButton').addEventListener('click', function () {
-      recognition.start();
+      if (!isRecognizing) {
+        recognition.start();
+        isRecognizing = true;
+      } else {
+        recognition.stop();
+        isRecognizing = false;
+      }
     });
   } else {
     console.error('Speech recognition not supported.');
