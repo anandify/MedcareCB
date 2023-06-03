@@ -118,3 +118,80 @@ form.addEventListener('keyup', (e) => {
         handleSubmit(e)
     }
 })
+
+// const startButton = document.getElementById('micButton');
+// const textarea = document.querySelector('prompt');
+
+// const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+// const recognition = new SpeechRecognition();
+
+// let isRecording = false; // Track the recording state
+
+// recognition.continuous = true; // Keeps listening even if the user pauses
+
+// recognition.onresult = (event) => {
+//   const transcript = event.results[event.results.length - 1][0].transcript;
+//   console.log('Recognized Speech:', transcript);
+//   textarea.value = transcript;
+// };
+
+// startButton.addEventListener('click', () => {
+//   if (!isRecording) {
+//     recognition.start();
+//     isRecording = true;
+//     startButton.classList.add('active'); // Add a CSS class to indicate active state
+//     startButton.querySelector('img').src = 'assets/mic2.svg'; // Change the image source
+//   } else {
+//     recognition.stop();
+//     isRecording = false;
+//     startButton.classList.remove('active'); // Remove the CSS class
+//     startButton.querySelector('img').src = 'assets/mic.svg'; // Change the image source back to the original
+//   }
+// });
+
+// Check for browser compatibility
+if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+    // Create a new SpeechRecognition object
+    var recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+  
+    // Set the recognition language
+    recognition.lang = 'en-US';
+  
+    // Set interim results to improve responsiveness
+    recognition.interimResults = true;
+  
+    // Define the event handlers for the recognition events
+    recognition.onstart = function () {
+      console.log('Speech recognition started...');
+    };
+  
+    recognition.onresult = function (event) {
+      var result = event.results[event.results.length - 1];
+      var transcript = result[0].transcript;
+      var confidence = result[0].confidence;
+  
+      // Display the result in the textarea
+      var textarea = document.querySelector('textarea[name="prompt"]');
+      textarea.value = transcript;
+    };
+  
+    recognition.onerror = function (event) {
+      console.error('Speech recognition error:', event.error);
+    };
+  
+    recognition.onend = function () {
+      console.log('Speech recognition ended.');
+  
+      // Automatically click the send button
+      var sendButton = document.querySelector('button[type="submit"]');
+      sendButton.click();
+    };
+  
+    // Start the recognition when the microphone button is clicked
+    document.getElementById('micButton').addEventListener('click', function () {
+      recognition.start();
+    });
+  } else {
+    console.error('Speech recognition not supported.');
+  }
+  

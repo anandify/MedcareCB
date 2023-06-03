@@ -24,12 +24,14 @@ app.get('/', async (req, res) => {
 app.post('/', async (req, res) => {
   try {
     const prompt = req.body.prompt;
-    const trimonth = '4';
-    const name = 'Harshita';
-    const history = `You are a chatbot that helps pregnant women. Name of the Patient: ${name}`;
+    const name = 'Khushi';
+    const trimonth = '4';//the current month of the trimester
+    const medical='Diabetes'//append more
+    //const history = `You are a chatbot that helps pregnant women. (The woman is already pregnant so please dont ask unnecessary questions).`;
+    const history = `You are a chatbot that helps pregnant women. (The woman is already pregnant so please dont ask unessecary questions) Name of the Patient: ${name}`;
     
 
-    //Old habits die hard
+    // Old habits die hard
     // const response = await openai.createCompletion({
     //   model: "text-davinci-003",
     //   prompt: `${prompt}`,
