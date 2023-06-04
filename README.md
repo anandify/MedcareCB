@@ -39,7 +39,7 @@ cd mamta
 
 flutter run
 
-flutter dev run Attrwee===e
+flutter dev run -v
 
 
 ## Contributing
