@@ -10,21 +10,37 @@ In addition to answering questions, Mamta can help women schedule appointments w
 
 To build Mamta, follow these steps:
 
+## WebApp(Using Node.js):
+
+1. Clone (.\Code Nostalgia\) and then navigate and run the following:
+
 ### Server
 
 1. Install Node.js and npm on your machine.
-2. Open a terminal window and navigate to the project directory.
+2. Open a terminal window and navigate to the project directory(server).
 3. Run the command `npm install` to install the dependencies.
 4. Run the command `npm run server` to start the server.
 
 ### Client
 
-1. Open a new terminal window and navigate to the project directory.
+1. Open a new terminal window and navigate to the project directory().
 2. Run the command `npm run dev` to start the client.
 
 ## Usage
 
 Once the server and client are running, you can access Mamta by opening your web browser and navigating to http://localhost:5317. From there, you can interact with the chatbot and ask it questions related to pregnancy.
+
+
+## Android(Using Flutter):
+
+Clone .\Mamta Chatbot\mamta and all its contents.
+
+cd mamta
+
+flutter run
+
+flutter dev run Attrwee===e
+
 
 ## Contributing
 
