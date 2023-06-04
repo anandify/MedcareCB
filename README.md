@@ -38,8 +38,13 @@ Clone .\Mamta Chatbot\mamta and all its contents.
 cd mamta
 
 flutter run
+or
+flutter run -v (to run verbose, and see errors if any)
 
-flutter dev run -v
+//If frequent errors then
+flutter clean
+then
+flutter pub upgrade
 
 
 ## Contributing
